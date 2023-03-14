@@ -14,6 +14,7 @@
 		99D9343529C08E2400592C83 /* ChecklistTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D9343429C08E2400592C83 /* ChecklistTests.swift */; };
 		99D9343F29C08E2400592C83 /* ChecklistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D9343E29C08E2400592C83 /* ChecklistUITests.swift */; };
 		99D9344129C08E2400592C83 /* ChecklistUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D9344029C08E2400592C83 /* ChecklistUITestsLaunchTests.swift */; };
+		99D9344E29C08FC500592C83 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 99D9344D29C08FC500592C83 /* Readme.md */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		99D9343A29C08E2400592C83 /* ChecklistUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ChecklistUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D9343E29C08E2400592C83 /* ChecklistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistUITests.swift; sourceTree = "<group>"; };
 		99D9344029C08E2400592C83 /* ChecklistUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		99D9344D29C08FC500592C83 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +76,7 @@
 		99D9341729C08E2300592C83 = {
 			isa = PBXGroup;
 			children = (
+				99D9344D29C08FC500592C83 /* Readme.md */,
 				99D9342229C08E2300592C83 /* Checklist */,
 				99D9343329C08E2400592C83 /* ChecklistTests */,
 				99D9343D29C08E2400592C83 /* ChecklistUITests */,
@@ -233,6 +236,7 @@
 			files = (
 				99D9342B29C08E2400592C83 /* Preview Assets.xcassets in Resources */,
 				99D9342829C08E2400592C83 /* Assets.xcassets in Resources */,
+				99D9344E29C08FC500592C83 /* Readme.md in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
