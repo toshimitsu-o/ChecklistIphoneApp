@@ -2,7 +2,7 @@
 
 The project is started from week 2 and Checklist app is created.
 
-## Week 2 learning
+## Week 2 learning journal
 
 - How to create a project
 - How to manage source control using Git

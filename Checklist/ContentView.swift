@@ -7,15 +7,31 @@
 
 import SwiftUI
 
+struct Todo: Hashable {
+    var task: String
+    var status: Bool
+}
+
+var checklist = [
+    Todo(task: "Commit to git", status: true),
+    Todo(task: "Update the changelog", status: false)
+]
+
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, world!")
+        List {
+            ForEach(checklist, id:\.self) { todo in
+                HStack {
+                    Text(todo.task)
+                    Spacer()
+                    if todo.status {
+                        Image(systemName: "checkmark.circle.fill")
+                    } else {
+                        Image(systemName: "circle")
+                    }
+                }
+            }
         }
-        .padding()
     }
 }
 
