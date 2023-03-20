@@ -18,12 +18,14 @@ final class ChecklistTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        // Any test you write for XCTest can be annotated as throws and async.
-        // Mark your test throws to produce an unexpected failure when your test encounters an uncaught error.
-        // Mark your test async to allow awaiting for asynchronous code to complete. Check the results with assertions afterwards.
+    func testTodoModel() throws {
+        let task = "task exmaple"
+        let time = "Mon"
+        let status = false
+        let todo = Todo(task: task, time: time, status: status)
+        XCTAssertEqual(todo.task, task)
+        XCTAssertEqual(todo.time, time)
+        XCTAssertEqual(todo.status, status)
     }
 
     func testPerformanceExample() throws {
