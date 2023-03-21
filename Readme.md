@@ -10,12 +10,16 @@ The project is started from week 2 and Checklist app is created.
 - How to use List, VStack, HStack in SwiftUI
 - How to create Array and store objects
 - How to use ForEach() to access items in an array
+- How to build unit test
+- Separation of Model and View
 
 ## Milestone 1 Changelog
 
 - Add Readme file
 - Add structure Todo
 - Add List of Todo
+- Separate View and Model
+- Add unit tests to test Todo model
 
 ## Video
 
