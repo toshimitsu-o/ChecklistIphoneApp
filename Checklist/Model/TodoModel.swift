@@ -9,10 +9,11 @@
 struct Todo: Hashable {
     var task: String
     var time: String
-    var status: Bool
+    var isDone: Bool
 }
 
 var checklist = [
-    Todo(task: "Commit to git", time: "Mon", status: true),
-    Todo(task: "Update the changelog", time: "Wed", status: false)
+    Todo(task: "Read Swift book", time: "Mon", isDone: true),
+    Todo(task: "Review lecture slides", time: "Tue", isDone: false),
+    Todo(task: "Do workshop tasks", time: "Wed", isDone: false)
 ]

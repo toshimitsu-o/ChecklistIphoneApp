@@ -21,11 +21,17 @@ final class ChecklistTests: XCTestCase {
     func testTodoModel() throws {
         let task = "task exmaple"
         let time = "Mon"
-        let status = false
-        let todo = Todo(task: task, time: time, status: status)
+        let isDone = false
+        let todo = Todo(task: task, time: time, isDone: isDone)
         XCTAssertEqual(todo.task, task)
         XCTAssertEqual(todo.time, time)
-        XCTAssertEqual(todo.status, status)
+        XCTAssertEqual(todo.isDone, isDone)
+    }
+    
+    func testChecklist() throws {
+        XCTAssertEqual(checklist[0].task, "Read Swift book")
+        XCTAssertEqual(checklist[1].time, "Tue")
+        XCTAssertEqual(checklist[2].task, "Do workshop tasks")
     }
 
     func testPerformanceExample() throws {

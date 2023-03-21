@@ -21,7 +21,7 @@ struct ContentView: View {
                             .background(.blue)
                         Text(todo.task)
                         Spacer()
-                        if todo.status {
+                        if todo.isDone {
                             Image(systemName: "checkmark.circle.fill")
                                 .foregroundColor(.blue)
                         } else {
