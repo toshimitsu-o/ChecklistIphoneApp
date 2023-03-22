@@ -15,5 +15,7 @@ struct Todo: Hashable {
 var checklist = [
     Todo(task: "Read Swift book", time: "Mon", isDone: true),
     Todo(task: "Review lecture slides", time: "Tue", isDone: false),
-    Todo(task: "Do workshop tasks", time: "Wed", isDone: false)
+    Todo(task: "Do workshop tasks", time: "Wed", isDone: false),
+    Todo(task: "Attend workshop", time: "Thu", isDone: false),
+    Todo(task: "Read additional readings", time: "Fri", isDone: false)
 ]

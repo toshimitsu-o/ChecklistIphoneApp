@@ -32,6 +32,7 @@ final class ChecklistTests: XCTestCase {
         XCTAssertEqual(checklist[0].task, "Read Swift book")
         XCTAssertEqual(checklist[1].time, "Tue")
         XCTAssertEqual(checklist[2].task, "Do workshop tasks")
+        XCTAssertEqual(checklist[3].task, "Attend workshop")
     }
 
     func testPerformanceExample() throws {
