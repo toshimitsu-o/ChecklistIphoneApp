@@ -2,7 +2,7 @@
 
 The project is started from week 2 and Checklist app is created.
 
-## Week 2 learning journal
+## Week 2 Learning Journal
 
 - How to create a project
 - How to manage source control using Git
@@ -11,6 +11,7 @@ The project is started from week 2 and Checklist app is created.
 - How to create Array and store objects
 - How to use ForEach() to access items in an array
 - How to build unit test
+- How to test data model and items in an array
 - Separation of Model and View
 
 ## Milestone 1 Changelog
