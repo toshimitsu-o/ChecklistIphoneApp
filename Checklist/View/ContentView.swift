@@ -13,7 +13,7 @@ struct ContentView: View {
             List {
                 ForEach(checklist, id:\.self) {
                     todo in
-                    NavigationLink(destination: ListRowView(todo: todo)) {
+                    NavigationLink(destination: ListDetailView(todo: todo)) {
                         ListRowView(todo: todo)
                     }
                 }
