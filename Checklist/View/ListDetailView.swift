@@ -9,14 +9,19 @@ import SwiftUI
 
 /// Detail view of checklist list
 struct ListDetailView: View {
-    var todo: Todo
+    @State var todo: Todo
+    @State var originalTask: Todo = Todo(task: "", time: "", isDone: false)
     var body: some View {
         VStack{
+            Text(todo.task)
+                .font(.title)
+            Spacer()
             Text(todo.time)
                 .foregroundColor(Color.white)
                 .frame(width:61.0)
                 .background(.blue)
             Text(todo.task)
+            TextField("<new name>", text: $todo.task)
             if todo.isDone {
                 Image(systemName: "checkmark.circle.fill")
                     .foregroundColor(.blue)
@@ -24,6 +29,16 @@ struct ListDetailView: View {
                 Image(systemName: "circle")
                     .foregroundColor(.gray)
             }
+            Spacer()
+            HStack{
+                Button("Undo"){
+                    todo = originalTask
+                }
+            }
+            Spacer()
+        }
+        .onAppear{
+            originalTask = todo
         }
     }
 }
