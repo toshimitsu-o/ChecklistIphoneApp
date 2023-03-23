@@ -18,6 +18,11 @@ The project is started from week 2 and Checklist app is created using SwiftUI.
 - How to extract a subview
 - How to rename functions
 
+### Week 3
+
+- How to create amd edit documentation pages
+- How to add comments and documentations for functions, structs, and classes
+
 ## Milestone 1 Changelog
 
 - Add Readme file

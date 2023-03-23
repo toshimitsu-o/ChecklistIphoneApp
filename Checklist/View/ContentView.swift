@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Main view of the app
 struct ContentView: View {
     var body: some View {
         NavigationView{

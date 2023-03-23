@@ -1,6 +1,6 @@
 # ``Checklist``
 
-<!--@START_MENU_TOKEN@-->Summary<!--@END_MENU_TOKEN@-->
+The app to allow user to create lists of checklists and add todo tasks to the lists.
 
 ## Overview
 

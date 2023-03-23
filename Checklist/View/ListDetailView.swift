@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// Detail view of checklist list
 struct ListDetailView: View {
     var todo: Todo
     var body: some View {
