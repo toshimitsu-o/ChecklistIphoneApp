@@ -9,14 +9,15 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Text("MAD tasks")
-                .font(.title)
+        NavigationView{
             List {
-                ForEach(checklist, id:\.self) { todo in
-                    ListRowView(todo: todo)
+                ForEach(checklist, id:\.self) {
+                    todo in
+                    NavigationLink(destination: ListRowView(todo: todo)) {
+                        ListRowView(todo: todo)
+                    }
                 }
-            }
+            }.navigationTitle("MAD Tasks")
         }
     }
 }
