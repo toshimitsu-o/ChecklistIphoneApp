@@ -2,7 +2,9 @@
 
 The project is started from week 2 and Checklist app is created using SwiftUI.
 
-## Week 2 Learning Journal
+## Learning Journal
+
+### Week 2 
 
 - How to create a project
 - How to manage source control using Git
@@ -13,6 +15,8 @@ The project is started from week 2 and Checklist app is created using SwiftUI.
 - How to build unit test
 - How to test data model and items in an array
 - Separation of Model and View
+- How to extract a subview
+- How to rename functions
 
 ## Milestone 1 Changelog
 
@@ -23,6 +27,7 @@ The project is started from week 2 and Checklist app is created using SwiftUI.
 - Add unit tests to test Todo model
 - Add unit tests to test checklist array
 - Change title
+- Move row part in list to ListRowView
 
 ## Video
 

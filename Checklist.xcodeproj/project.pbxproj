@@ -17,6 +17,7 @@
 		99D9343F29C08E2400592C83 /* ChecklistUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D9343E29C08E2400592C83 /* ChecklistUITests.swift */; };
 		99D9344129C08E2400592C83 /* ChecklistUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D9344029C08E2400592C83 /* ChecklistUITestsLaunchTests.swift */; };
 		99D9344E29C08FC500592C83 /* Readme.md in Resources */ = {isa = PBXBuildFile; fileRef = 99D9344D29C08FC500592C83 /* Readme.md */; };
+		99F993A029CBEFBB00754DF8 /* ListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9939F29CBEFBB00754DF8 /* ListRowView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +51,7 @@
 		99D9343E29C08E2400592C83 /* ChecklistUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistUITests.swift; sourceTree = "<group>"; };
 		99D9344029C08E2400592C83 /* ChecklistUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		99D9344D29C08FC500592C83 /* Readme.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = Readme.md; sourceTree = "<group>"; };
+		99F9939F29CBEFBB00754DF8 /* ListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ListRowView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -89,6 +91,7 @@
 			isa = PBXGroup;
 			children = (
 				99D9342529C08E2300592C83 /* ContentView.swift */,
+				99F9939F29CBEFBB00754DF8 /* ListRowView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -285,6 +288,7 @@
 			files = (
 				999D1B3429C2C46F0091444F /* TodoModel.swift in Sources */,
 				99D9342629C08E2300592C83 /* ContentView.swift in Sources */,
+				99F993A029CBEFBB00754DF8 /* ListRowView.swift in Sources */,
 				99D9342429C08E2300592C83 /* ChecklistApp.swift in Sources */,
 				995EC34229C7FA110022701F /* Documentation.docc in Sources */,
 			);
