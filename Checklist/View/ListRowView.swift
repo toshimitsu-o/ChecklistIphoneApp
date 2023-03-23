@@ -9,7 +9,7 @@ import SwiftUI
 
 /// Row view of checklist list
 struct ListRowView: View {
-    var todo: Todo
+    @Binding var todo: Todo
     var body: some View {
         HStack {
             Text(todo.time)

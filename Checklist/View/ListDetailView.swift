@@ -9,20 +9,21 @@ import SwiftUI
 
 /// Detail view of checklist list
 struct ListDetailView: View {
-    @State var todo: Todo
-    @State var originalTask: Todo = Todo(task: "", time: "", isDone: false)
+    @Binding var todo: Todo
+    @State var originalTodo: Todo = Todo(task: "", time: "", isDone: false)
+    @State var newTodo: Todo = Todo(task: "", time: "", isDone: false)
     var body: some View {
         VStack{
-            Text(todo.task)
+            Text(newTodo.task)
                 .font(.title)
             Spacer()
-            Text(todo.time)
+            Text(newTodo.time)
                 .foregroundColor(Color.white)
                 .frame(width:61.0)
                 .background(.blue)
-            Text(todo.task)
-            TextField("<new name>", text: $todo.task)
-            if todo.isDone {
+            Text(newTodo.task)
+            TextField("<new name>", text: $newTodo.task)
+            if newTodo.isDone {
                 Image(systemName: "checkmark.circle.fill")
                     .foregroundColor(.blue)
             } else {
@@ -31,20 +32,26 @@ struct ListDetailView: View {
             }
             Spacer()
             HStack{
-                Button("Undo"){
-                    todo = originalTask
+                if (originalTodo != newTodo) {
+                    Button("Undo"){
+                        newTodo = originalTodo
+                    }
                 }
             }
             Spacer()
         }
         .onAppear{
-            originalTask = todo
+            originalTodo = todo
+            newTodo = todo
+        }
+        .onDisappear{
+            todo = newTodo
         }
     }
 }
 
 struct ListDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ListDetailView(todo: checklist[0])
+        ListDetailView(todo: .constant(Todo(task: "Read Swift book", time: "Mon", isDone: true)))
     }
 }
