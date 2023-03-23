@@ -1,6 +1,6 @@
 #  Checklist (Milestone 1)
 
-The project is started from week 2 and Checklist app is created.
+The project is started from week 2 and Checklist app is created using SwiftUI.
 
 ## Week 2 Learning Journal
 
@@ -21,8 +21,10 @@ The project is started from week 2 and Checklist app is created.
 - Add List of Todo
 - Separate View and Model
 - Add unit tests to test Todo model
+- Add unit tests to test checklist array
+- Change title
 
 ## Video
 
 Demonstrating the excution of code, explanation of the code and major design concepts of the project.
-[Video](https://)
+[Video](https://youtu.be/sN9LoF2gJMk)

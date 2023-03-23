@@ -10,7 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         VStack {
-            Text("Checklist")
+            Text("MAD tasks")
                 .font(.title)
             List {
                 ForEach(checklist, id:\.self) { todo in
