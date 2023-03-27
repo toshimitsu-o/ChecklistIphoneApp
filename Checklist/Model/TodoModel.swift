@@ -5,7 +5,7 @@
 //  Created by Toshimitsu Ota on 16/3/2023.
 //
 
-///  Defines Todo tasks
+///  Defines Todo task
 struct Todo: Hashable {
     /// Task name
     var task: String
