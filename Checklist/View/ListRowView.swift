@@ -10,7 +10,7 @@ import SwiftUI
 /// Row view of checklist list
 struct ListRowView: View {
     @Binding var todo: Todo
-    @State var showEdit: Bool = false
+//    @State var showEdit: Bool = false
     let lightGray = Color(white: 0.95)
     let boxShadow = Color(white: 0.8)
     
@@ -46,29 +46,29 @@ struct ListRowView: View {
 //                        showEdit = !showEdit
 //                    }
             }
-            if (showEdit) {
-                VStack {
-                    HStack {
-                        TextField("New task", text: $todo.task)
-                        Picker(selection: $todo.time, label: EmptyView()) {
-                            ForEach(Day.allCases) {
-                                day in
-                                Text(day.rawValue.capitalized)
-                            }
-                        }.pickerStyle(.menu)
-                            .background(lightGray)
-                            .frame(width: 70)
-                            .clipped()
-                    }
-                    Button(action: {showEdit = false}) {
-                        Label("Done", systemImage: "arrow.uturn.backward.circle")
-                    }
-                }
-                .padding(8)
-                .background(.white)
-                .clipShape(RoundedRectangle(cornerRadius: 8))
-                .shadow(color: boxShadow, radius: 5, x: 5, y: 5)
-            }
+//            if (showEdit) {
+//                VStack {
+//                    HStack {
+//                        TextField("New task", text: $todo.task)
+//                        Picker(selection: $todo.time, label: EmptyView()) {
+//                            ForEach(Day.allCases) {
+//                                day in
+//                                Text(day.rawValue.capitalized)
+//                            }
+//                        }.pickerStyle(.menu)
+//                            .background(lightGray)
+//                            .frame(width: 70)
+//                            .clipped()
+//                    }
+//                    Button(action: {showEdit = false}) {
+//                        Label("Done", systemImage: "arrow.uturn.backward.circle")
+//                    }
+//                }
+//                .padding(8)
+//                .background(.white)
+//                .clipShape(RoundedRectangle(cornerRadius: 8))
+//                .shadow(color: boxShadow, radius: 5, x: 5, y: 5)
+//            }
         }
     }
 }
