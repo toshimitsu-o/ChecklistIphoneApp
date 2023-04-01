@@ -22,18 +22,29 @@ struct ListRowView: View {
                     .onTapGesture {
                         todo.isDone = !todo.isDone
                     }
-                Text(todo.task)
-                    .onTapGesture {
-                        showEdit = !showEdit
-                    }
+                TextField("New task", text: $todo.task)
                 Spacer()
-                Text(todo.time.rawValue.capitalized)
-                    .foregroundColor(Color.white)
-                    .frame(width:55.0)
-                    .background(.blue)
-                    .onTapGesture {
-                        showEdit = !showEdit
-                    }
+                Menu {
+                    Picker(selection: $todo.time) {
+                        ForEach(Day.allCases) { value in
+                            Text(value.rawValue.capitalized)
+                                .tag(value)
+                        }
+                    } label: {}
+                } label: {
+                    Text(todo.time.rawValue.capitalized)
+                        .font(.body)
+                        .foregroundColor(Color.white)
+                        .frame(width:55.0)
+                        .background(.blue)
+                }.id(todo.time)
+//                Text(todo.time.rawValue.capitalized)
+//                    .foregroundColor(Color.white)
+//                    .frame(width:55.0)
+//                    .background(.blue)
+//                    .onTapGesture {
+//                        showEdit = !showEdit
+//                    }
             }
             if (showEdit) {
                 VStack {
