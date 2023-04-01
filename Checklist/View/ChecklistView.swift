@@ -9,6 +9,8 @@ import SwiftUI
 
 struct ChecklistView: View {
     @Binding var checklist: Checklist
+    @State var displayChecklit: Checklist
+    @Environment(\.editMode) var editMode
     var body: some View {
             List {
                 ForEach($checklist.todos, id:\.self) {
@@ -18,6 +20,11 @@ struct ChecklistView: View {
                     }
                 }
             }
+            .navigationBarItems(leading: EditButton(), trailing: Button(action: {
+                // Add new item
+                let newTodo = Todo(task: "New", time: "-", isDone: false)
+                checklist.todos.insert(newTodo, at: 0)
+            }){Image(systemName: "plus.circle")})
             .navigationTitle($checklist.title)
     }
 }

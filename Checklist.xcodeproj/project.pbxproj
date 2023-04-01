@@ -132,10 +132,10 @@
 		99D9342229C08E2300592C83 /* Checklist */ = {
 			isa = PBXGroup;
 			children = (
+				99D9342329C08E2300592C83 /* ChecklistApp.swift */,
 				995EC37A29C80A770022701F /* View */,
 				995EC37929C80A610022701F /* Model */,
 				995EC34129C7FA110022701F /* Documentation.docc */,
-				99D9342329C08E2300592C83 /* ChecklistApp.swift */,
 				99D9342729C08E2400592C83 /* Assets.xcassets */,
 				99D9342929C08E2400592C83 /* Preview Content */,
 			);

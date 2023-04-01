@@ -9,34 +9,31 @@ import SwiftUI
 
 /// Main view of the app
 struct ContentView: View {
-    @State var checklists = [
-        Checklist(title: "List One", todos: [
-            Todo(task: "Read Swift book", time: "Mon", isDone: true),
-            Todo(task: "Review lecture slides", time: "Tue", isDone: true),
-            Todo(task: "Do workshop tasks", time: "Wed", isDone: true),
-            Todo(task: "Attend workshop", time: "Thu", isDone: false),
-            Todo(task: "Read additional readings", time: "Fri", isDone: false)
-        ])
-    ]
+    @Binding var model: DataModel
     var body: some View {
         NavigationView{
             List {
-                ForEach($checklists, id:\.self) {
-                    $checklist in
-                    NavigationLink(destination: ChecklistView(checklist: $checklist)) {
-                        MasterListRowView(checklist: $checklist)
+                ForEach($model.checklists, id:\.self) {
+                    checklist in
+                    NavigationLink(destination: ChecklistView(checklist: checklist)) {
+                        MasterListRowView(checklist: checklist)
                     }
                 }
                 .onDelete{
                     // Delete item
                     index in
-                    checklists.remove(atOffsets: index)
+                    model.checklists.remove(atOffsets: index)
+                }
+                .onMove{
+                    // Move item
+                    index, i in
+                    model.checklists.move(fromOffsets: index, toOffset: i)
                 }
             }
             .navigationBarItems(leading: EditButton(), trailing: Button(action: {
                 // Add new item
                 let newChecklist = Checklist(title: "New item", todos: [])
-                checklists.insert(newChecklist, at: 0)
+                model.checklists.append(newChecklist)
             }){Image(systemName: "plus.circle")})
             .navigationTitle("Checklists")
         }
@@ -44,7 +41,8 @@ struct ContentView: View {
 }
 
 struct ContentView_Previews: PreviewProvider {
+    @State static var model = DataModel(checklists: testChecklists)
     static var previews: some View {
-        ContentView()
+        ContentView(model: $model)
     }
 }

@@ -13,6 +13,10 @@ struct Checklist: Hashable {
     var todos: [Todo]
 }
 
+struct DataModel {
+    var checklists: [Checklist]
+}
+
 var testChecklists = [
     Checklist(title: "List One", todos: [
         Todo(task: "Read Swift book", time: "Mon", isDone: true),
