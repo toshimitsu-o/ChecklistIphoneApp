@@ -12,19 +12,17 @@ struct ListRowView: View {
     @Binding var todo: Todo
     var body: some View {
         HStack {
-            Text(todo.time.rawValue.capitalized)
-                .foregroundColor(Color.white)
-                .frame(width:61.0)
-                .background(.blue)
+            Image(systemName: todo.isDone ? "checkmark.circle.fill" : "circle")
+                .foregroundColor(todo.isDone ? .blue : .gray)
+                .onTapGesture {
+                    todo.isDone = !todo.isDone
+                }
             Text(todo.task)
             Spacer()
-            if todo.isDone {
-                Image(systemName: "checkmark.circle.fill")
-                    .foregroundColor(.blue)
-            } else {
-                Image(systemName: "circle")
-                    .foregroundColor(.gray)
-            }
+            Text(todo.time.rawValue.capitalized)
+                .foregroundColor(Color.white)
+                .frame(width:55.0)
+                .background(.blue)
         }
     }
 }
