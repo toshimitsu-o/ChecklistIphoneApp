@@ -4,9 +4,11 @@
 //
 //  Created by Toshimitsu Ota on 16/3/2023.
 //
+import Foundation
 
 ///  Defines Todo task
 struct Todo: Hashable {
+    var id = UUID()
     /// Task name
     var task: String
     /// Time tag for todo task
@@ -16,6 +18,6 @@ struct Todo: Hashable {
 }
 
 enum Day: String, CaseIterable, Identifiable {
-    case mon, tue, wed, thu, fri, sat, sun
+    case none, mon, tue, wed, thu, fri, sat, sun
     var id: Self { self }
 }

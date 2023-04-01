@@ -6,12 +6,15 @@
 //
 
 import SwiftUI
-
+extension UIPickerView {
+   open override var intrinsicContentSize: CGSize {
+      return CGSize(width: UIView.noIntrinsicMetric, height: super.intrinsicContentSize.height)}
+}
 struct ChecklistView: View {
     @Binding var checklist: Checklist
     @State var displayChecklist: Checklist = Checklist(title: "", todos: [])
     @State var newTodoTask = ""
-    @State private var selectedDay: Day = .mon
+    @State private var selectedDay: Day = .none
     @Environment(\.editMode) var editMode
     var body: some View {
         VStack {
@@ -27,7 +30,7 @@ struct ChecklistView: View {
                     }
                 }
                 Section() {
-                    ForEach($displayChecklist.todos, id:\.self) {
+                    ForEach($displayChecklist.todos, id:\.id) {
                         $todo in
                         ListRowView(todo: $todo)
                     }
@@ -41,6 +44,9 @@ struct ChecklistView: View {
                         index, i in
                         displayChecklist.todos.move(fromOffsets: index, toOffset: i)
                     }
+                    
+                }
+                Section(header: Text("Add new task")) {
                     HStack {
                         Image(systemName: "plus.circle")
                         VStack {
@@ -49,15 +55,29 @@ struct ChecklistView: View {
                                     day in
                                     Text(day.rawValue.capitalized)
                                 }
-                            }
+                            }.pickerStyle(.menu)
                             TextField("New task", text: $newTodoTask)
                                 .onSubmit {
                                     let newTodo = Todo(task: newTodoTask, time: selectedDay, isDone: false)
                                     displayChecklist.todos.append(newTodo)
                                     newTodoTask = ""
-                                    selectedDay = .mon
+                                    selectedDay = .none
                                 }
                         }
+                    }
+                }
+                if(editMode?.wrappedValue == .active) {
+                    Button(action: {
+                        for index in displayChecklist.todos.indices {
+                            displayChecklist.todos[index].isDone = false
+                        }
+                    }) {
+                        Label("Uncheck All", systemImage: "circle.dotted")
+                    }
+                }
+                if (displayChecklist != checklist) {
+                    Button(action: {displayChecklist = checklist}) {
+                        Label("Undo Changes", systemImage: "arrow.uturn.backward.circle")
                     }
                 }
             }
