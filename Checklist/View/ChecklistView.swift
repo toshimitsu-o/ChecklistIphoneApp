@@ -9,28 +9,73 @@ import SwiftUI
 
 struct ChecklistView: View {
     @Binding var checklist: Checklist
-    @State var displayChecklit: Checklist
+    @State var displayChecklist: Checklist = Checklist(title: "", todos: [])
+    @State var newTodoTask = ""
+    @State private var selectedDay: Day = .mon
     @Environment(\.editMode) var editMode
     var body: some View {
+        VStack {
             List {
-                ForEach($checklist.todos, id:\.self) {
-                    $todo in
-                    NavigationLink(destination: ListDetailView(todo: $todo)) {
+                if(editMode?.wrappedValue == .active) {
+                    Section(header: Text("Title")) {
+                        HStack {
+                            TextField("New title", text: $displayChecklist.title)
+                            Button("Cancel"){
+                                displayChecklist.title = checklist.title
+                            }
+                        }
+                    }
+                }
+                Section() {
+                    ForEach($displayChecklist.todos, id:\.self) {
+                        $todo in
                         ListRowView(todo: $todo)
+                    }
+                    .onDelete{
+                        // Delete item
+                        index in
+                        displayChecklist.todos.remove(atOffsets: index)
+                    }
+                    .onMove{
+                        // Move item
+                        index, i in
+                        displayChecklist.todos.move(fromOffsets: index, toOffset: i)
+                    }
+                    HStack {
+                        Image(systemName: "plus.circle")
+                        VStack {
+                            Picker("Time", selection: $selectedDay) {
+                                ForEach(Day.allCases) {
+                                    day in
+                                    Text(day.rawValue.capitalized)
+                                }
+                            }
+                            TextField("New task", text: $newTodoTask)
+                                .onSubmit {
+                                    let newTodo = Todo(task: newTodoTask, time: selectedDay, isDone: false)
+                                    displayChecklist.todos.append(newTodo)
+                                    newTodoTask = ""
+                                    selectedDay = .mon
+                                }
+                        }
                     }
                 }
             }
-            .navigationBarItems(leading: EditButton(), trailing: Button(action: {
-                // Add new item
-                let newTodo = Todo(task: "New", time: "-", isDone: false)
-                checklist.todos.insert(newTodo, at: 0)
-            }){Image(systemName: "plus.circle")})
-            .navigationTitle($checklist.title)
+        }
+        .onAppear{
+            displayChecklist = checklist
+        }
+        .onDisappear{
+            checklist = displayChecklist
+        }
+        .navigationBarItems(trailing: EditButton())
+        .navigationTitle($displayChecklist.title)
     }
 }
 
-//struct ChecklistView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        ChecklistView(checklist: testChecklists[0])
-//    }
-//}
+struct ChecklistView_Previews: PreviewProvider {
+    @State static var checklist = Checklist(title: testChecklists[0].title, todos: testChecklists[0].todos)
+    static var previews: some View {
+        ChecklistView(checklist: $checklist)
+    }
+}

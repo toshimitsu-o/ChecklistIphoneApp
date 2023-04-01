@@ -10,14 +10,14 @@ import SwiftUI
 /// Detail view of checklist list
 struct ListDetailView: View {
     @Binding var todo: Todo
-    @State var originalTodo: Todo = Todo(task: "", time: "", isDone: false)
-    @State var newTodo: Todo = Todo(task: "", time: "", isDone: false)
+    @State var originalTodo: Todo = Todo(task: "", time: .mon, isDone: false)
+    @State var newTodo: Todo = Todo(task: "", time: .mon, isDone: false)
     var body: some View {
         VStack{
             Text(newTodo.task)
                 .font(.title)
             Spacer()
-            Text(newTodo.time)
+            Text("")
                 .foregroundColor(Color.white)
                 .frame(width:61.0)
                 .background(.blue)
@@ -52,6 +52,6 @@ struct ListDetailView: View {
 
 struct ListDetailView_Previews: PreviewProvider {
     static var previews: some View {
-        ListDetailView(todo: .constant(Todo(task: "Read Swift book", time: "Mon", isDone: true)))
+        ListDetailView(todo: .constant(Todo(task: "Read Swift book", time: .mon, isDone: true)))
     }
 }

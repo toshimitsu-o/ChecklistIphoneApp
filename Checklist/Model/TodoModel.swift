@@ -10,7 +10,12 @@ struct Todo: Hashable {
     /// Task name
     var task: String
     /// Time tag for todo task
-    var time: String
+    var time: Day
     /// Status of todo task
     var isDone: Bool
+}
+
+enum Day: String, CaseIterable, Identifiable {
+    case mon, tue, wed, thu, fri, sat, sun
+    var id: Self { self }
 }

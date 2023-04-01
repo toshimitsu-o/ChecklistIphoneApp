@@ -12,7 +12,7 @@ struct ListRowView: View {
     @Binding var todo: Todo
     var body: some View {
         HStack {
-            Text(todo.time)
+            Text(todo.time.rawValue.capitalized)
                 .foregroundColor(Color.white)
                 .frame(width:61.0)
                 .background(.blue)
