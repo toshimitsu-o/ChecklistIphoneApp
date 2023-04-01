@@ -27,12 +27,17 @@ struct ContentView: View {
                         MasterListRowView(checklist: $checklist)
                     }
                 }
+                .onDelete{
+                    // Delete item
+                    index in
+                    checklists.remove(atOffsets: index)
+                }
             }
-            .navigationBarItems(trailing: Button(action: {
+            .navigationBarItems(leading: EditButton(), trailing: Button(action: {
                 // Add new item
                 let newChecklist = Checklist(title: "New item", todos: [])
                 checklists.insert(newChecklist, at: 0)
-            }){Image( systemName: "plus.circle")})
+            }){Image(systemName: "plus.circle")})
             .navigationTitle("Checklists")
         }
     }
