@@ -10,9 +10,7 @@ import SwiftUI
 /// Row view of checklist list
 struct ListRowView: View {
     @Binding var todo: Todo
-//    @State var showEdit: Bool = false
-    let lightGray = Color(white: 0.95)
-    let boxShadow = Color(white: 0.8)
+    let lightGray = Color(white: 0.9)
     
     var body: some View {
         VStack {
@@ -32,11 +30,12 @@ struct ListRowView: View {
                         }
                     } label: {}
                 } label: {
-                    Text(todo.time.rawValue.capitalized)
+                    Text(todo.time == .none ? "-" : todo.time.rawValue.capitalized)
                         .font(.body)
                         .foregroundColor(Color.white)
-                        .frame(width:55.0)
-                        .background(.blue)
+                        .frame(width:50.0)
+                        .background(todo.time == .none ? lightGray : .green)
+                        .clipShape(RoundedRectangle(cornerRadius: 10))
                 }.id(todo.time)
 //                Text(todo.time.rawValue.capitalized)
 //                    .foregroundColor(Color.white)
