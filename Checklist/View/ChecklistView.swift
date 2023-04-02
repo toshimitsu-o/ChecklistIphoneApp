@@ -21,6 +21,7 @@ struct ChecklistView: View {
         VStack {
             TitleEditView(title: $displayChecklist.title)
             List {
+                Section(){
                     ForEach($displayChecklist.todos, id:\.id) {
                         $todo in
                         ListRowView(todo: $todo)
@@ -38,14 +39,15 @@ struct ChecklistView: View {
                     
                     HStack {
                         Image(systemName: "plus.circle")
-                            TextField("New task", text: $newTodoTask)
-                                .onSubmit {
-                                    let newTodo = Todo(task: newTodoTask, time: .none, isDone: false)
-                                    displayChecklist.todos.append(newTodo)
-                                    newTodoTask = ""
-                                    selectedDay = .none
-                                }
+                        TextField("New task", text: $newTodoTask)
+                            .onSubmit {
+                                let newTodo = Todo(task: newTodoTask, time: .none, isDone: false)
+                                displayChecklist.todos.append(newTodo)
+                                newTodoTask = ""
+                                selectedDay = .none
+                            }
                     }
+                }
                 if editMode?.wrappedValue.isEditing == true {
                     Button(action: {
                         for index in displayChecklist.todos.indices {

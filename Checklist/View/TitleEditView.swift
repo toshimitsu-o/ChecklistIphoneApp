@@ -20,7 +20,7 @@ struct TitleEditView: View {
                     Button("Cancel"){
                         displayTitle = title
                     }
-                }.padding(20)
+                }.padding(30)
                 .onAppear{
                     displayTitle = title
                 }
