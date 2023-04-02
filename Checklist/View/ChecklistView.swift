@@ -15,13 +15,12 @@ struct ChecklistView: View {
     @State var displayChecklist: Checklist = Checklist(title: "", todos: [])
     @State var newTodoTask = ""
     @State private var selectedDay: Day = .none
-    @State var diplayTitle: String = ""
     @Environment(\.editMode) private var editMode
+    
     var body: some View {
         VStack {
             TitleEditView(title: $displayChecklist.title)
             List {
-                Section() {
                     ForEach($displayChecklist.todos, id:\.id) {
                         $todo in
                         ListRowView(todo: $todo)
@@ -37,27 +36,16 @@ struct ChecklistView: View {
                         displayChecklist.todos.move(fromOffsets: index, toOffset: i)
                     }
                     
-                }
-                Section(header: Text("Add new task")) {
                     HStack {
                         Image(systemName: "plus.circle")
-                        VStack {
-                            Picker("Time", selection: $selectedDay) {
-                                ForEach(Day.allCases) {
-                                    day in
-                                    Text(day.rawValue.capitalized)
-                                }
-                            }.pickerStyle(.menu)
                             TextField("New task", text: $newTodoTask)
                                 .onSubmit {
-                                    let newTodo = Todo(task: newTodoTask, time: selectedDay, isDone: false)
+                                    let newTodo = Todo(task: newTodoTask, time: .none, isDone: false)
                                     displayChecklist.todos.append(newTodo)
                                     newTodoTask = ""
                                     selectedDay = .none
                                 }
-                        }
                     }
-                }
                 if editMode?.wrappedValue.isEditing == true {
                     Button(action: {
                         for index in displayChecklist.todos.indices {
@@ -78,10 +66,8 @@ struct ChecklistView: View {
         }
         .onAppear{
             displayChecklist = checklist
-            diplayTitle = displayChecklist.title
         }
         .onDisappear{
-            displayChecklist.title = diplayTitle
             checklist = displayChecklist
         }
         .navigationBarItems(trailing: EditButton())
