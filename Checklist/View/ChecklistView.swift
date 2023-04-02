@@ -15,20 +15,12 @@ struct ChecklistView: View {
     @State var displayChecklist: Checklist = Checklist(title: "", todos: [])
     @State var newTodoTask = ""
     @State private var selectedDay: Day = .none
-    @Environment(\.editMode) var editMode
+    @State var diplayTitle: String = ""
+    @Environment(\.editMode) private var editMode
     var body: some View {
         VStack {
+            TitleEditView(title: $displayChecklist.title)
             List {
-                if(editMode?.wrappedValue == .active) {
-                    Section(header: Text("Title")) {
-                        HStack {
-                            TextField("New title", text: $displayChecklist.title)
-                            Button("Cancel"){
-                                displayChecklist.title = checklist.title
-                            }
-                        }
-                    }
-                }
                 Section() {
                     ForEach($displayChecklist.todos, id:\.id) {
                         $todo in
@@ -66,7 +58,7 @@ struct ChecklistView: View {
                         }
                     }
                 }
-                if(editMode?.wrappedValue == .active) {
+                if editMode?.wrappedValue.isEditing == true {
                     Button(action: {
                         for index in displayChecklist.todos.indices {
                             displayChecklist.todos[index].isDone = false
@@ -74,18 +66,22 @@ struct ChecklistView: View {
                     }) {
                         Label("Uncheck All", systemImage: "circle.dotted")
                     }
-                }
-                if (displayChecklist != checklist) {
-                    Button(action: {displayChecklist = checklist}) {
-                        Label("Undo Changes", systemImage: "arrow.uturn.backward.circle")
+                    Button(action: {
+                        for index in displayChecklist.todos.indices {
+                            displayChecklist.todos[index].isDone = checklist.todos[index].isDone
+                        }
+                    }) {
+                        Label("Undo Checks", systemImage: "arrow.uturn.backward.circle")
                     }
                 }
             }
         }
         .onAppear{
             displayChecklist = checklist
+            diplayTitle = displayChecklist.title
         }
         .onDisappear{
+            displayChecklist.title = diplayTitle
             checklist = displayChecklist
         }
         .navigationBarItems(trailing: EditButton())

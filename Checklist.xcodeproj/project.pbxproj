@@ -11,6 +11,7 @@
 		992B1E5C29D12DA9005AE6F8 /* ChecklistView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B1E5B29D12DA9005AE6F8 /* ChecklistView.swift */; };
 		992B1E5E29D12EF6005AE6F8 /* MasterListRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 992B1E5D29D12EF6005AE6F8 /* MasterListRowView.swift */; };
 		995EC34229C7FA110022701F /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 995EC34129C7FA110022701F /* Documentation.docc */; };
+		9989DAD229D913DD005BFCCC /* TitleEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989DAD129D913DD005BFCCC /* TitleEditView.swift */; };
 		999D1B3429C2C46F0091444F /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999D1B3329C2C46F0091444F /* TodoModel.swift */; };
 		99D9342429C08E2300592C83 /* ChecklistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D9342329C08E2300592C83 /* ChecklistApp.swift */; };
 		99D9342629C08E2300592C83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D9342529C08E2300592C83 /* ContentView.swift */; };
@@ -46,6 +47,7 @@
 		992B1E5B29D12DA9005AE6F8 /* ChecklistView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistView.swift; sourceTree = "<group>"; };
 		992B1E5D29D12EF6005AE6F8 /* MasterListRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterListRowView.swift; sourceTree = "<group>"; };
 		995EC34129C7FA110022701F /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
+		9989DAD129D913DD005BFCCC /* TitleEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditView.swift; sourceTree = "<group>"; };
 		999D1B3329C2C46F0091444F /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
 		99D9342029C08E2300592C83 /* Checklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D9342329C08E2300592C83 /* ChecklistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistApp.swift; sourceTree = "<group>"; };
@@ -104,6 +106,7 @@
 				992B1E5D29D12EF6005AE6F8 /* MasterListRowView.swift */,
 				99F9939F29CBEFBB00754DF8 /* ListRowView.swift */,
 				99DF32CB29CC1FD400454311 /* ListDetailView.swift */,
+				9989DAD129D913DD005BFCCC /* TitleEditView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -301,6 +304,7 @@
 				999D1B3429C2C46F0091444F /* TodoModel.swift in Sources */,
 				99D9342629C08E2300592C83 /* ContentView.swift in Sources */,
 				992B1E5E29D12EF6005AE6F8 /* MasterListRowView.swift in Sources */,
+				9989DAD229D913DD005BFCCC /* TitleEditView.swift in Sources */,
 				99F993A029CBEFBB00754DF8 /* ListRowView.swift in Sources */,
 				992B1E5C29D12DA9005AE6F8 /* ChecklistView.swift in Sources */,
 				99DF32CC29CC1FD400454311 /* ListDetailView.swift in Sources */,
@@ -467,6 +471,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Checklist/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Checklist/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
@@ -495,6 +500,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"Checklist/Preview Content\"";
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Checklist/Info.plist;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
