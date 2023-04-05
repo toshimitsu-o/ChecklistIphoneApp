@@ -1,10 +1,10 @@
 # ``Checklist``
 
-The app to allow user to create lists of checklists and add todo tasks to the lists.
+Checklist management app to store checklists with todo tasks.
 
 ## Overview
 
-<!--@START_MENU_TOKEN@-->Text<!--@END_MENU_TOKEN@-->
+Checklist management app to store user's checklists. Users can add a checklist and store tasks in it. A task consists of check status, task name, and time tag. Tasks can be added, edited, and deleted. In the checklist detail view, Uncheck All button change statuses of all todo tasks to not done. Undo Checks button revert the check statuses of all todo tasks to original.
 
 ## Topics
 
