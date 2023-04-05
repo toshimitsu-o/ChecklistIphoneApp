@@ -15,6 +15,8 @@ struct Todo: Hashable {
     var time: Day
     /// Status of todo task
     var isDone: Bool
+    /// Previous status of todo task
+    var previouIsDone: Bool?
 }
 
 /// Selection of day for the time tag in Todo

@@ -15,6 +15,8 @@ struct ChecklistView: View {
     @State var displayChecklist: Checklist = Checklist(title: "", todos: [])
     /// Empty task value for new todo item
     @State var newTodoTask = ""
+    /// Manage state to check undo can be shown
+    @State var canUndo = false
     @Environment(\.editMode) private var editMode
     
     /// List of Todo items and buttons for uncheck all, and undo with Edit button
@@ -53,23 +55,22 @@ struct ChecklistView: View {
                 // Items to show in Edit mode
                 if editMode?.wrappedValue.isEditing == true {
                     Button(action: {
-                        // Loop to change todo check state to false
-                        for index in displayChecklist.todos.indices {
-                            displayChecklist.todos[index].isDone = false
-                        }
+                        // Change all isDone to false
+                        displayChecklist.resetStatuses()
+                        // Change state to show Undo
+                        canUndo = true
                     }) {
                         Label("Uncheck All", systemImage: "circle.dotted")
                     }
-                    Button(action: {
-                        // Loop to revert todo check state to original
-                        for index in displayChecklist.todos.indices {
-                            // Check if index is still in range of checklist lenght
-                            if index < checklist.todos.count {
-                                displayChecklist.todos[index].isDone = checklist.todos[index].isDone
-                            }
+                    if canUndo {
+                        Button(action: {
+                            // revert isDone state to previous
+                            displayChecklist.undoStatus()
+                            // Change state to hide Undo
+                            canUndo = false
+                        }) {
+                            Label("Undo Checks", systemImage: "arrow.uturn.backward.circle")
                         }
-                    }) {
-                        Label("Undo Checks", systemImage: "arrow.uturn.backward.circle")
                     }
                 }
             }
