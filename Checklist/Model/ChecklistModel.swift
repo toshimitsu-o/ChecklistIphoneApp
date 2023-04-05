@@ -21,7 +21,7 @@ struct DataModel {
 
 /// Sample array of Checklist containing an array of Todo
 var testChecklists = [
-    Checklist(title: "List One", todos: [
+    Checklist(title: "MAD tasks", todos: [
         Todo(task: "Read Swift book", time: .mon, isDone: true),
         Todo(task: "Review lecture slides", time: .tue, isDone: true),
         Todo(task: "Do workshop tasks", time: .wed, isDone: true),

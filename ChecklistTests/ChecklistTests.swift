@@ -8,6 +8,7 @@
 import XCTest
 @testable import Checklist
 
+/// Unit tests
 final class ChecklistTests: XCTestCase {
 
     override func setUpWithError() throws {
@@ -18,9 +19,10 @@ final class ChecklistTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
+    /// Test  model Todo
     func testTodoModel() throws {
         let task = "task exmaple"
-        let time = "Mon"
+        let time = Day.mon
         let isDone = false
         let todo = Todo(task: task, time: time, isDone: isDone)
         XCTAssertEqual(todo.task, task)
@@ -28,11 +30,32 @@ final class ChecklistTests: XCTestCase {
         XCTAssertEqual(todo.isDone, isDone)
     }
     
+    /// Test enumeration Day
+    func testEnumDay() throws {
+        let day1: Day = .mon
+        let result = day1
+        XCTAssertEqual(result, .mon)
+    }
+    
+    /// Test  model Checklist
     func testChecklist() throws {
-        XCTAssertEqual(checklist[0].task, "Read Swift book")
-        XCTAssertEqual(checklist[1].time, "Tue")
-        XCTAssertEqual(checklist[2].task, "Do workshop tasks")
-        XCTAssertEqual(checklist[3].task, "Attend workshop")
+        let title = "Test title"
+        let todo1 = Todo(task: "Read Swift book", time: .mon, isDone: true)
+        let todo2 = Todo(task: "Some task", time: .tue, isDone: false)
+        let todos = [todo1, todo2]
+        let checklist = Checklist(title: title, todos: todos)
+        XCTAssertEqual(checklist.title, title)
+        XCTAssertEqual(checklist.todos[0], todo1)
+        XCTAssertEqual(checklist.todos[1], todo2)
+        XCTAssertEqual(checklist.todos.count, 2)
+    }
+    
+    /// Test data model
+    func testDataModel() throws {
+        let testData: DataModel = DataModel(checklists: testChecklists)
+        XCTAssertEqual(testData.checklists[0].title, testChecklists[0].title)
+        XCTAssertEqual(testData.checklists[0].todos[0].task, testChecklists[0].todos[0].task)
+        XCTAssertEqual(testData.checklists.count, testChecklists.count)
     }
 
     func testPerformanceExample() throws {
