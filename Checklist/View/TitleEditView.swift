@@ -11,7 +11,7 @@ import SwiftUI
 struct TitleEditView: View {
     /// Binding title value
     @Binding var title: String
-    /// Storing title value temporary
+    /// Storing title value temporarily
     @State var displayTitle: String = ""
     @Environment(\.editMode) private var editMode
     

@@ -9,6 +9,7 @@ import SwiftUI
 
 /// Sub view of row content for todo list
 struct ListRowView: View {
+    /// Biding todo value
     @Binding var todo: Todo
     /// Background colour for .none selection in Todo:Time
     let noneBackgroundColor = Color(white: 0.9)

@@ -1,6 +1,6 @@
-#  Checklist (Milestone 1)
+#  Checklist (Milestone 2)
 
-The project is started from week 2 and Checklist app is created using SwiftUI.
+The project is started from week 2 and Checklist app is created using SwiftUI. The app is to manage user's checklists with todo tasks. View flow is managed by navigation view which consists of master and detail views.
 
 ## Learning Journal
 
@@ -38,7 +38,9 @@ The project is started from week 2 and Checklist app is created using SwiftUI.
 - How to implement DataModel in an app
 - How to save data as a JSON file and load the file
 
-## Milestone 1 Changelog
+## Changelog
+
+### Milestone 1
 
 - Add Readme file
 - Add structure Todo
@@ -49,7 +51,7 @@ The project is started from week 2 and Checklist app is created using SwiftUI.
 - Change title
 - Move row part in list to ListRowView
 
-## Milestone 2 Changelog
+### Milestone 2
 
 - Convert to navigation view
 - Add multiple checklist management

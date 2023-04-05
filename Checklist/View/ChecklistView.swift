@@ -11,7 +11,7 @@ import SwiftUI
 struct ChecklistView: View {
     /// Binding checklist value
     @Binding var checklist: Checklist
-    /// Storing checklist temporary
+    /// Storing checklist temporarily
     @State var displayChecklist: Checklist = Checklist(title: "", todos: [])
     /// Empty task value for new todo item
     @State var newTodoTask = ""
