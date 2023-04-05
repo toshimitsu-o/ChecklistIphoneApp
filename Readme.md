@@ -63,6 +63,7 @@ The project is started from week 2 and Checklist app is created using SwiftUI. T
 - Implement enumeration for todo.time
 - Add inline picker menu to change todo.time value
 - Improve UI designs
+- Change logics of reset and undo then move them to model file
 
 ## Video
 

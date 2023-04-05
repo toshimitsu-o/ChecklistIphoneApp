@@ -13,6 +13,7 @@
 		995EC34229C7FA110022701F /* Documentation.docc in Sources */ = {isa = PBXBuildFile; fileRef = 995EC34129C7FA110022701F /* Documentation.docc */; };
 		9989DAD229D913DD005BFCCC /* TitleEditView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9989DAD129D913DD005BFCCC /* TitleEditView.swift */; };
 		999D1B3429C2C46F0091444F /* TodoModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 999D1B3329C2C46F0091444F /* TodoModel.swift */; };
+		99B99E8729DD40B8000E8E84 /* DataModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99B99E8629DD40B8000E8E84 /* DataModel.swift */; };
 		99D9342429C08E2300592C83 /* ChecklistApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D9342329C08E2300592C83 /* ChecklistApp.swift */; };
 		99D9342629C08E2300592C83 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99D9342529C08E2300592C83 /* ContentView.swift */; };
 		99D9342829C08E2400592C83 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 99D9342729C08E2400592C83 /* Assets.xcassets */; };
@@ -48,6 +49,7 @@
 		995EC34129C7FA110022701F /* Documentation.docc */ = {isa = PBXFileReference; lastKnownFileType = folder.documentationcatalog; path = Documentation.docc; sourceTree = "<group>"; };
 		9989DAD129D913DD005BFCCC /* TitleEditView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TitleEditView.swift; sourceTree = "<group>"; };
 		999D1B3329C2C46F0091444F /* TodoModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TodoModel.swift; sourceTree = "<group>"; };
+		99B99E8629DD40B8000E8E84 /* DataModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataModel.swift; sourceTree = "<group>"; };
 		99D9342029C08E2300592C83 /* Checklist.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Checklist.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		99D9342329C08E2300592C83 /* ChecklistApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChecklistApp.swift; sourceTree = "<group>"; };
 		99D9342529C08E2300592C83 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -92,6 +94,7 @@
 			children = (
 				999D1B3329C2C46F0091444F /* TodoModel.swift */,
 				992B1E5929D12B5C005AE6F8 /* ChecklistModel.swift */,
+				99B99E8629DD40B8000E8E84 /* DataModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				992B1E5E29D12EF6005AE6F8 /* MasterListRowView.swift in Sources */,
 				9989DAD229D913DD005BFCCC /* TitleEditView.swift in Sources */,
 				99F993A029CBEFBB00754DF8 /* ListRowView.swift in Sources */,
+				99B99E8729DD40B8000E8E84 /* DataModel.swift in Sources */,
 				992B1E5C29D12DA9005AE6F8 /* ChecklistView.swift in Sources */,
 				99D9342429C08E2300592C83 /* ChecklistApp.swift in Sources */,
 				995EC34229C7FA110022701F /* Documentation.docc in Sources */,
