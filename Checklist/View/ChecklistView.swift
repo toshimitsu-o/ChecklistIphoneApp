@@ -63,7 +63,10 @@ struct ChecklistView: View {
                     Button(action: {
                         // Loop to revert todo check state to original
                         for index in displayChecklist.todos.indices {
-                            displayChecklist.todos[index].isDone = checklist.todos[index].isDone
+                            // Check if index is still in range of checklist lenght
+                            if index < checklist.todos.count {
+                                displayChecklist.todos[index].isDone = checklist.todos[index].isDone
+                            }
                         }
                     }) {
                         Label("Undo Checks", systemImage: "arrow.uturn.backward.circle")
