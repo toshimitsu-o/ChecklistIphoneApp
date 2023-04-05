@@ -69,3 +69,5 @@ The project is started from week 2 and Checklist app is created using SwiftUI. T
 
 Demonstrating the excution of code, explanation of the code and major design concepts of the project.
 [M1 Video](https://youtu.be/xyq9-Ha_6IE)
+[M2 Video](https://youtu.be/cHB99h7lIHk)
+
