@@ -22,6 +22,21 @@ The project is started from week 2 and Checklist app is created using SwiftUI.
 
 - How to create amd edit documentation pages
 - How to add comments and documentations for functions, structs, and classes
+- Difference between reference type and value type
+- How to use extentions, sub classes, and protocols
+- How to use Bining and State
+- How to manage data saving in navigation view
+- How to use Picker
+
+### Week 4
+
+- How to use Enum
+- How to handle errors with optional type
+- How to implement add and delete features
+- How to add move item feature in List
+- How to use editMode environment
+- How to implement DataModel in an app
+- How to save data as a JSON file and load the file
 
 ## Milestone 1 Changelog
 
@@ -33,6 +48,19 @@ The project is started from week 2 and Checklist app is created using SwiftUI.
 - Add unit tests to test checklist array
 - Change title
 - Move row part in list to ListRowView
+
+## Milestone 2 Changelog
+
+- Convert to navigation view
+- Add multiple checklist management
+- Add Undo feature
+- Add master view with detail view
+- Add Edit and Delete feature
+- Add toggle check mark feature
+- Add new task insertion
+- Implement enumeration for todo.time
+- Add inline picker menu to change todo.time value
+- Improve UI designs
 
 ## Video
 
