@@ -7,9 +7,11 @@
 
 import SwiftUI
 
-/// Main view of the app
+/// Main view of the app listing checklists with Add and Edit buttons
 struct ContentView: View {
+    /// Biding data model
     @Binding var model: DataModel
+    /// Master list with navigation
     var body: some View {
         NavigationView{
             List {

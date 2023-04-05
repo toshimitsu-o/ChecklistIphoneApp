@@ -7,8 +7,11 @@
 
 import SwiftUI
 
+/// Sub view to edit title in edit mode
 struct TitleEditView: View {
+    /// Binding title value
     @Binding var title: String
+    /// Storing title value temporary
     @State var displayTitle: String = ""
     @Environment(\.editMode) private var editMode
     
@@ -22,9 +25,11 @@ struct TitleEditView: View {
                     }
                 }.padding(30)
                 .onAppear{
+                    // Duplicate title value
                     displayTitle = title
                 }
                 .onDisappear{
+                    // Save updated title value
                     title = displayTitle
                 }
             Spacer()

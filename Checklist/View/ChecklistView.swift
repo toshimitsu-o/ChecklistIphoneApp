@@ -6,17 +6,18 @@
 //
 
 import SwiftUI
-extension UIPickerView {
-   open override var intrinsicContentSize: CGSize {
-      return CGSize(width: UIView.noIntrinsicMetric, height: super.intrinsicContentSize.height)}
-}
+
+/// Detail view listing Todo of a selected Checklist with Edit button
 struct ChecklistView: View {
+    /// Binding checklist value
     @Binding var checklist: Checklist
+    /// Storing checklist temporary
     @State var displayChecklist: Checklist = Checklist(title: "", todos: [])
+    /// Empty task value for new todo item
     @State var newTodoTask = ""
-    @State private var selectedDay: Day = .none
     @Environment(\.editMode) private var editMode
     
+    /// List of Todo items and buttons for uncheck all, and undo with Edit button
     var body: some View {
         VStack {
             TitleEditView(title: $displayChecklist.title)
@@ -36,20 +37,23 @@ struct ChecklistView: View {
                         index, i in
                         displayChecklist.todos.move(fromOffsets: index, toOffset: i)
                     }
-                    
+                    // Add new Todo by hit enter
                     HStack {
                         Image(systemName: "plus.circle")
                         TextField("New task", text: $newTodoTask)
                             .onSubmit {
                                 let newTodo = Todo(task: newTodoTask, time: .none, isDone: false)
+                                // Add new Todo
                                 displayChecklist.todos.append(newTodo)
+                                // Reset the textfield value
                                 newTodoTask = ""
-                                selectedDay = .none
                             }
                     }
                 }
+                // Items to show in Edit mode
                 if editMode?.wrappedValue.isEditing == true {
                     Button(action: {
+                        // Loop to change todo check state to false
                         for index in displayChecklist.todos.indices {
                             displayChecklist.todos[index].isDone = false
                         }
@@ -57,6 +61,7 @@ struct ChecklistView: View {
                         Label("Uncheck All", systemImage: "circle.dotted")
                     }
                     Button(action: {
+                        // Loop to revert todo check state to original
                         for index in displayChecklist.todos.indices {
                             displayChecklist.todos[index].isDone = checklist.todos[index].isDone
                         }
@@ -67,9 +72,11 @@ struct ChecklistView: View {
             }
         }
         .onAppear{
+            // Copy original checklist
             displayChecklist = checklist
         }
         .onDisappear{
+            // Save updated checklist
             checklist = displayChecklist
         }
         .navigationBarItems(trailing: EditButton())

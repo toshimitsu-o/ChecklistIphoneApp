@@ -8,7 +8,9 @@
 import SwiftUI
 
 @main
+/// Base view of the app
 struct ChecklistApp: App {
+    /// Inisialise a data model with a sample data
     @State var model: DataModel = DataModel(checklists: testChecklists)
     var body: some Scene {
         WindowGroup {

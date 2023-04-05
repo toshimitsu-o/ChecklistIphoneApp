@@ -7,7 +7,9 @@
 
 import SwiftUI
 
+/// Sub view to contain row content for the main checklist list
 struct MasterListRowView: View {
+    /// Biding checklist
     @Binding var checklist: Checklist
     var body: some View {
         HStack {
@@ -15,9 +17,3 @@ struct MasterListRowView: View {
         }
     }
 }
-
-//struct MasterListRowView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MasterListRowView()
-//    }
-//}
