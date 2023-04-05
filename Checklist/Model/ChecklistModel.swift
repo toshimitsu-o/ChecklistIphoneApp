@@ -13,10 +13,13 @@ struct Checklist: Hashable {
     var todos: [Todo]
 }
 
+/// Model to store user's checklists
 struct DataModel {
+    /// Array of Checklist
     var checklists: [Checklist]
 }
 
+/// Sample array of Checklist containing an array of Todo
 var testChecklists = [
     Checklist(title: "List One", todos: [
         Todo(task: "Read Swift book", time: .mon, isDone: true),
