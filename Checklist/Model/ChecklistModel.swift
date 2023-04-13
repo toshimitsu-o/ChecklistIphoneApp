@@ -6,7 +6,7 @@
 //
 
 /// Defines checklist model
-struct Checklist: Hashable {
+struct Checklist: Hashable, Codable {
     /// Checklist title name
     var title: String
     /// Array to store todos

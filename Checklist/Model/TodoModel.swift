@@ -7,7 +7,7 @@
 import Foundation
 
 ///  Defines Todo task
-struct Todo: Hashable {
+struct Todo: Hashable, Codable {
     var id = UUID()
     /// Task name
     var task: String
@@ -20,7 +20,7 @@ struct Todo: Hashable {
 }
 
 /// Selection of day for the time tag in Todo
-enum Day: String, CaseIterable, Identifiable {
+enum Day: String, CaseIterable, Identifiable, Codable {
     case none, mon, tue, wed, thu, fri, sat, sun
     var id: Self { self }
 }

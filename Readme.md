@@ -38,6 +38,9 @@ The project is started from week 2 and Checklist app is created using SwiftUI. T
 - How to implement DataModel in an app
 - How to save data as a JSON file and load the file
 
+### Week 5
+- How to use Codable protocol for struct
+
 ## Changelog
 
 ### Milestone 1
