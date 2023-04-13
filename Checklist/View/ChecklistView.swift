@@ -10,7 +10,7 @@ import SwiftUI
 /// Detail view listing Todo of a selected Checklist with Edit button
 struct ChecklistView: View {
     /// Binding checklist value
-    @Binding var checklist: Checklist
+    @ObservedObject var checklist: Checklist
     /// Storing checklist temporarily
     @State var displayChecklist: Checklist = Checklist(title: "", todos: [])
     /// Empty task value for new todo item
@@ -22,22 +22,24 @@ struct ChecklistView: View {
     /// List of Todo items and buttons for uncheck all, and undo with Edit button
     var body: some View {
         VStack {
-            TitleEditView(title: $displayChecklist.title)
+            TitleEditView(title: $checklist.title)
             List {
                 Section(){
-                    ForEach($displayChecklist.todos, id:\.id) {
+                    ForEach($checklist.todos, id:\.id) {
                         $todo in
                         ListRowView(todo: $todo)
                     }
                     .onDelete{
                         // Delete item
                         index in
-                        displayChecklist.todos.remove(atOffsets: index)
+                        checklist.todos.remove(atOffsets: index)
+                        saveData()
                     }
                     .onMove{
                         // Move item
                         index, i in
-                        displayChecklist.todos.move(fromOffsets: index, toOffset: i)
+                        checklist.todos.move(fromOffsets: index, toOffset: i)
+                        saveData()
                     }
                     // Add new Todo by hit enter
                     HStack {
@@ -46,7 +48,8 @@ struct ChecklistView: View {
                             .onSubmit {
                                 let newTodo = Todo(task: newTodoTask, time: .none, isDone: false)
                                 // Add new Todo
-                                displayChecklist.todos.append(newTodo)
+                                checklist.todos.append(newTodo)
+                                saveData()
                                 // Reset the textfield value
                                 newTodoTask = ""
                             }
@@ -56,7 +59,8 @@ struct ChecklistView: View {
                 if editMode?.wrappedValue.isEditing == true {
                     Button(action: {
                         // Change all isDone to false
-                        displayChecklist.resetStatuses()
+                        checklist.resetStatuses()
+                        saveData()
                         // Change state to show Undo
                         canUndo = true
                     }) {
@@ -65,7 +69,8 @@ struct ChecklistView: View {
                     if canUndo {
                         Button(action: {
                             // revert isDone state to previous
-                            displayChecklist.undoStatus()
+                            checklist.undoStatus()
+                            saveData()
                             // Change state to hide Undo
                             canUndo = false
                         }) {
@@ -81,16 +86,19 @@ struct ChecklistView: View {
         }
         .onDisappear{
             // Save updated checklist
-            checklist = displayChecklist
+            checklist.title = displayChecklist.title
+            checklist.todos = displayChecklist.todos
+            saveData()
+            
         }
         .navigationBarItems(trailing: EditButton())
-        .navigationTitle($displayChecklist.title)
+        .navigationTitle(checklist.title)
     }
 }
 
 struct ChecklistView_Previews: PreviewProvider {
-    @State static var checklist = Checklist(title: testChecklists[0].title, todos: testChecklists[0].todos)
+    @StateObject static var checklist = DataModel.getDataModel().checklists[0]
     static var previews: some View {
-        ChecklistView(checklist: $checklist)
+        ChecklistView(checklist: checklist)
     }
 }

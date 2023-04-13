@@ -11,6 +11,7 @@ import SwiftUI
 struct ListRowView: View {
     /// Biding todo value
     @Binding var todo: Todo
+    @FocusState private var taskIsFocused: Bool
     /// Background colour for .none selection in Todo:Time
     let noneBackgroundColor = Color(white: 0.9)
     
@@ -23,8 +24,12 @@ struct ListRowView: View {
                     .onTapGesture {
                         // Toggle todo check state
                         todo.isDone = !todo.isDone
+                        saveData()
                     }
-                TextField("New task", text: $todo.task)
+                TextField("New task", text: $todo.task, onCommit: {
+                    // Save data when editing finishes
+                    saveData()
+                })
                 Spacer()
                 // Menu selection to change time
                 Menu {
@@ -34,6 +39,10 @@ struct ListRowView: View {
                                 .tag(value)
                         }
                     } label: {}
+                        .onChange(of: todo.time) { // Save data when selection changes
+                            _ in
+                            saveData()
+                        }
                 } label: {
                     // Label for the menu control
                     Text(todo.time == .none ? "-" : todo.time.rawValue.capitalized)

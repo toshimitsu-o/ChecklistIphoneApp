@@ -10,7 +10,7 @@ import SwiftUI
 /// Sub view to contain row content for the main checklist list
 struct MasterListRowView: View {
     /// Biding checklist
-    @Binding var checklist: Checklist
+    @State var checklist: Checklist
     var body: some View {
         HStack {
             Text(checklist.title)
