@@ -14,7 +14,11 @@ struct ChecklistApp: App {
     @StateObject var data:DataModel = DataModel.getDataModel()
     var body: some Scene {
         WindowGroup {
-            ContentView(model: data)
+            if (data.loadingCompleted) {
+                ContentView(model: data)
+            } else {
+                LoadingView()
+            }
         }
     }
 }
