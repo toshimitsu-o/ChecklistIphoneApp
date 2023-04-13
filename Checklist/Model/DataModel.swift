@@ -85,10 +85,10 @@ class DataModel: Codable, ObservableObject {
     }
 }
 
+/// Save model data from any view in the app
 func saveData() {
     let model = DataModel.getDataModel()
     model.save()
-    print(model)
 }
 
 /// Sample array of Checklist containing an array of Todo

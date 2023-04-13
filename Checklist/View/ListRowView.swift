@@ -24,12 +24,8 @@ struct ListRowView: View {
                     .onTapGesture {
                         // Toggle todo check state
                         todo.isDone = !todo.isDone
-                        saveData()
                     }
-                TextField("New task", text: $todo.task, onCommit: {
-                    // Save data when editing finishes
-                    saveData()
-                })
+                TextField("New task", text: $todo.task)
                 Spacer()
                 // Menu selection to change time
                 Menu {
@@ -39,10 +35,6 @@ struct ListRowView: View {
                                 .tag(value)
                         }
                     } label: {}
-                        .onChange(of: todo.time) { // Save data when selection changes
-                            _ in
-                            saveData()
-                        }
                 } label: {
                     // Label for the menu control
                     Text(todo.time == .none ? "-" : todo.time.rawValue.capitalized)

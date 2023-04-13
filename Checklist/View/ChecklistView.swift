@@ -12,7 +12,7 @@ struct ChecklistView: View {
     /// Binding checklist value
     @ObservedObject var checklist: Checklist
     /// Storing checklist temporarily
-    @State var displayChecklist: Checklist = Checklist(title: "", todos: [])
+    //@State var displayChecklist: Checklist = Checklist(title: "", todos: [])
     /// Empty task value for new todo item
     @State var newTodoTask = ""
     /// Manage state to check undo can be shown
@@ -23,11 +23,19 @@ struct ChecklistView: View {
     var body: some View {
         VStack {
             TitleEditView(title: $checklist.title)
+                .onChange(of: checklist.title) {
+                    _ in
+                    saveData()
+                }
             List {
                 Section(){
                     ForEach($checklist.todos, id:\.id) {
                         $todo in
                         ListRowView(todo: $todo)
+                            .onChange(of: todo) {
+                                _ in
+                                saveData()
+                            }
                     }
                     .onDelete{
                         // Delete item
@@ -80,17 +88,17 @@ struct ChecklistView: View {
                 }
             }
         }
-        .onAppear{
-            // Copy original checklist
-            displayChecklist = checklist
-        }
-        .onDisappear{
-            // Save updated checklist
-            checklist.title = displayChecklist.title
-            checklist.todos = displayChecklist.todos
-            saveData()
-            
-        }
+//        .onAppear{
+//            // Copy original checklist
+//            displayChecklist = checklist
+//        }
+//        .onDisappear{
+//            // Save updated checklist
+//            checklist.title = displayChecklist.title
+//            checklist.todos = displayChecklist.todos
+//            saveData()
+//
+//        }
         .navigationBarItems(trailing: EditButton())
         .navigationTitle(checklist.title)
     }
