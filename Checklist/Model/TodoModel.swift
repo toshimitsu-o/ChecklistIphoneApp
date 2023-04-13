@@ -8,6 +8,7 @@ import Foundation
 
 ///  Defines Todo task
 struct Todo: Hashable, Codable {
+    /// ID generated via UUID()
     var id = UUID()
     /// Task name
     var task: String

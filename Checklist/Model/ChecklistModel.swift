@@ -4,9 +4,12 @@
 //
 //  Created by Toshimitsu Ota on 27/3/2023.
 //
+import Foundation
 
 /// Defines checklist model
 struct Checklist: Hashable, Codable {
+    /// ID generated via UUID()
+    var id = UUID()
     /// Checklist title name
     var title: String
     /// Array to store todos

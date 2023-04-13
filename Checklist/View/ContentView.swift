@@ -15,7 +15,7 @@ struct ContentView: View {
     var body: some View {
         NavigationView{
             List {
-                ForEach($model.checklists, id:\.self) {
+                ForEach($model.checklists, id:\.id) {
                     checklist in
                     NavigationLink(destination: ChecklistView(checklist: checklist)) {
                         MasterListRowView(checklist: checklist)
@@ -25,17 +25,24 @@ struct ContentView: View {
                     // Delete item
                     index in
                     model.checklists.remove(atOffsets: index)
+                    model.save()
                 }
                 .onMove{
                     // Move item
                     index, i in
                     model.checklists.move(fromOffsets: index, toOffset: i)
+                    model.save()
                 }
+            }
+            .onDisappear{
+                // Save model
+                model.save()
             }
             .navigationBarItems(leading: EditButton(), trailing: Button(action: {
                 // Add new item
                 let newChecklist = Checklist(title: "New item", todos: [])
                 model.checklists.append(newChecklist)
+                model.save()
             }){Image(systemName: "plus.circle")})
             .navigationTitle("Checklists")
         }
