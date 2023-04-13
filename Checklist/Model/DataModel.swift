@@ -73,14 +73,19 @@ class DataModel: Codable, ObservableObject {
     
     func load() {
         Task {
-            guard let data = await asyLoad() else {return}
+            guard let data = await asyLoad() else {
+                // When there is no saved data
+                DispatchQueue.main.async {
+                    self.loadingCompleted = true
+                }
+                return
+            }
             /// withouth sleep, you can't observe the loading page...
             try? await Task.sleep(nanoseconds: 1000_000_000)
             DispatchQueue.main.async {
                 self.checklists = data.checklists
                 self.loadingCompleted = true
             }
-
         }
     }
 }
