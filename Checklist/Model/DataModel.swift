@@ -11,6 +11,12 @@ struct DataModel: Codable {
     /// Array of Checklist
     var checklists: [Checklist]
     
+    static func getDataModel()->DataModel {
+        var model = DataModel(checklists: testChecklists)
+        try? model.load()
+        return model
+    }
+    
     /// Load data decoded from saved JSON file
     mutating func load() {
         guard let url = getFile(),

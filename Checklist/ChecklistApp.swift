@@ -11,7 +11,7 @@ import SwiftUI
 /// Base view of the app
 struct ChecklistApp: App {
     /// Inisialise a data model with a sample data
-    @State var model: DataModel = DataModel(checklists: testChecklists)
+    @State var model: DataModel = DataModel.getDataModel()
     var body: some Scene {
         WindowGroup {
             ContentView(model: $model)
