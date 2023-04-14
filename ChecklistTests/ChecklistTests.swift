@@ -19,7 +19,7 @@ final class ChecklistTests: XCTestCase {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
 
-    /// Test  model Todo
+    /// Test model Todo by creting Todo instance via constructor and comparing with original values
     func testTodoModel() throws {
         let task = "task exmaple"
         let time = Day.mon
@@ -30,14 +30,14 @@ final class ChecklistTests: XCTestCase {
         XCTAssertEqual(todo.isDone, isDone)
     }
     
-    /// Test enumeration Day
+    /// Test enumeration Day by assigning case from the enumeration and comparing values
     func testEnumDay() throws {
         let day1: Day = .mon
         let result = day1
         XCTAssertEqual(result, .mon)
     }
     
-    /// Test  model Checklist
+    /// Test model Checklist by creating Checklist model via constuctor and comparing with original values
     func testChecklist() throws {
         let title = "Test title"
         let todo1 = Todo(task: "Read Swift book", time: .mon, isDone: true)
@@ -50,12 +50,13 @@ final class ChecklistTests: XCTestCase {
         XCTAssertEqual(checklist.todos.count, 2)
     }
     
-    /// Test data model
+    /// Test data model by inserting sample data and compare between data model and sample data
     func testDataModel() throws {
-        let testData: DataModel = DataModel(checklists: testChecklists)
-        XCTAssertEqual(testData.checklists[0].title, testChecklists[0].title)
-        XCTAssertEqual(testData.checklists[0].todos[0].task, testChecklists[0].todos[0].task)
-        XCTAssertEqual(testData.checklists.count, testChecklists.count)
+        var model:DataModel = DataModel.getDataModel()
+        model.checklists = testChecklists
+        XCTAssertEqual(model.checklists[0].title, testChecklists[0].title)
+        XCTAssertEqual(model.checklists[0].todos[0].task, testChecklists[0].todos[0].task)
+        XCTAssertEqual(model.checklists.count, testChecklists.count)
     }
 
     func testPerformanceExample() throws {
