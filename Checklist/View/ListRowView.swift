@@ -11,7 +11,6 @@ import SwiftUI
 struct ListRowView: View {
     /// Biding todo value
     @Binding var todo: Todo
-    @FocusState private var taskIsFocused: Bool
     /// Background colour for .none selection in Todo:Time
     let noneBackgroundColor = Color(white: 0.9)
     

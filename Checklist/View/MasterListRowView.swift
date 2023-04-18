@@ -9,8 +9,8 @@ import SwiftUI
 
 /// Sub view to contain row content for the main checklist list
 struct MasterListRowView: View {
-    /// Biding checklist
-    @State var checklist: Checklist
+    /// Subscribes to an observable object checklist
+    @ObservedObject var checklist: Checklist
     var body: some View {
         HStack {
             Text(checklist.title)

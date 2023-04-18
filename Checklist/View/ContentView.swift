@@ -9,7 +9,7 @@ import SwiftUI
 
 /// Main view of the app listing checklists with Add and Edit buttons
 struct ContentView: View {
-    /// Biding data model
+    /// Subscribes to an observable object data model
     @ObservedObject var model: DataModel
     /// Master list with navigation
     var body: some View {

@@ -7,6 +7,7 @@
 
 import SwiftUI
 
+/// View to display loading status
 struct LoadingView: View {
     var body: some View {
         Text("Loading...")

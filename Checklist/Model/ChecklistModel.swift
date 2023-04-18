@@ -15,10 +15,16 @@ class Checklist: Codable, ObservableObject {
     /// Array to store todos
     @Published var todos: [Todo]
     
+    /// Keys for encoding and decoding
     enum CodingKeys: CodingKey {
         case title
         case todos
     }
+    
+    /// Encode properties in container paired with keys
+    ///
+    /// - parameter type: The key type to use for the container.
+    /// - returns: A new keyed encoding container.
     func encode(to encoder: Encoder) throws {
         var container = encoder.container(keyedBy: CodingKeys.self)
         try container.encode(title, forKey: .title)
