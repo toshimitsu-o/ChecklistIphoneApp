@@ -12,6 +12,10 @@ import SwiftUI
 struct ChecklistApp: App {
     /// Inisialise a data model with a sample data
     @StateObject var data:DataModel = DataModel.getDataModel()
+    init() {
+        // Change color of navigation bar title
+        UINavigationBar.appearance().largeTitleTextAttributes = [.foregroundColor: UIColor.systemGreen]
+        }
     var body: some Scene {
         WindowGroup {
             if (data.loadingCompleted) {
