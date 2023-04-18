@@ -1,4 +1,4 @@
-#  Checklist (Milestone 2)
+#  Checklist (Milestone 3)
 
 The project is started from week 2 and Checklist app is created using SwiftUI. The app is to manage user's checklists with todo tasks. View flow is managed by navigation view which consists of master and detail views.
 
