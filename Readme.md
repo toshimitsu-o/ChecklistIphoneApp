@@ -90,7 +90,8 @@ The project is started from week 2 and Checklist app is created using SwiftUI. T
 
 ## Video
 
-Demonstrating the excution of code, explanation of the code and major design concepts of the project.
-[M1 Video](https://youtu.be/xyq9-Ha_6IE)
-[M2 Video](https://youtu.be/cHB99h7lIHk)
+Demonstrating the excution of code, explanation of the code.
+[Milestone 1 Video](https://youtu.be/xyq9-Ha_6IE)
+[Milestone 2 Video](https://youtu.be/cHB99h7lIHk)
+[Milestone 3 Video](https://youtu.be/f0znBb9iffc)
 
