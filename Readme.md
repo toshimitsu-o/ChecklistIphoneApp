@@ -49,6 +49,7 @@ The project is started from week 2 and Checklist app is created using SwiftUI. T
 - How to add to main thread using DispatchQueue
 - How to add loading view
 - How to add app icon
+- How to change navigation tilte colour
 
 ## Changelog
 
@@ -85,6 +86,7 @@ The project is started from week 2 and Checklist app is created using SwiftUI. T
 - Add loading view to indicate data loading status
 - Add app icon
 - Refactor views to reflect changes of class conversion
+- Update styling: loading animation, font colours, accent colour
 
 ## Video
 
