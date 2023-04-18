@@ -26,7 +26,7 @@ The project is started from week 2 and Checklist app is created using SwiftUI. T
 - How to use extentions, sub classes, and protocols
 - How to use Bining and State
 - How to manage data saving in navigation view
-- How to use Picker
+- How to use Picker and Menu
 
 ### Week 4
 
@@ -40,6 +40,15 @@ The project is started from week 2 and Checklist app is created using SwiftUI. T
 
 ### Week 5
 - How to use Codable protocol for struct
+- How to encode and decode data to JSON with keys
+- How to convert model to Class from struct
+- How to make a new branch and chackout
+- How to use ObservableObject
+- How to use async function and Task
+- How to delay process using Task.sleep
+- How to add to main thread using DispatchQueue
+- How to add loading view
+- How to add app icon
 
 ## Changelog
 
@@ -67,6 +76,15 @@ The project is started from week 2 and Checklist app is created using SwiftUI. T
 - Add inline picker menu to change todo.time value
 - Improve UI designs
 - Change logics of reset and undo then move them to model file
+
+### Milestone 3
+
+- Add save/load feature for persistent data
+- Change data model and Checklist to class from struct (struct branched out)
+- Add global save function and call from where data changes
+- Add loading view to indicate data loading status
+- Add app icon
+- Refactor views to reflect changes of class conversion
 
 ## Video
 
