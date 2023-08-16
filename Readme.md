@@ -1,4 +1,6 @@
-#  Checklist (Milestone 3)
+#  Checklist iPhone App
+
+April 2023
 
 The project is started from week 2 and Checklist app is created using SwiftUI. The app is to manage user's checklists with todo tasks. View flow is managed by navigation view which consists of master and detail views.
 
@@ -91,7 +93,5 @@ The project is started from week 2 and Checklist app is created using SwiftUI. T
 ## Video
 
 Demonstrating the excution of code, explanation of the code.
-[Milestone 1 Video](https://youtu.be/xyq9-Ha_6IE)
-[Milestone 2 Video](https://youtu.be/cHB99h7lIHk)
 [Milestone 3 Video](https://youtu.be/f0znBb9iffc)
 
